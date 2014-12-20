@@ -521,7 +521,7 @@
     }, 
     "itemID": 171, 
     "name": "Carpet",
-    "solid": true
+    "solid": false
   }, 
   "carrot": {
     "itemID": 391, 
