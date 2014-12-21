@@ -18,7 +18,7 @@ def start_afk_thread(bot):
                 print 'Server disconnected. Exiting'
                 os.kill(pid, 0)
                 break
-            bot.send(bot.proto.PlayServerboundHeldItemChange.id,
+            bot._send(bot.proto.PlayServerboundHeldItemChange.id,
                      slot=i
                      )
             i = (i + 1) % 8
@@ -42,7 +42,7 @@ def start_shear_thread(bot):
                 if not is_child and not is_sheared:
                     log.debug("Entity metadata: %s", str(entity.metadata))
                     log.info("Sending UseEntity for eid: [%d]", entity.eid)
-                    bot.send(bot.proto.PlayServerboundUseEntity.id,
+                    bot._send(bot.proto.PlayServerboundUseEntity.id,
                              target=entity.eid,
                              type=0
                              )
@@ -61,7 +61,7 @@ def start_chat_interface(bot):
     while message not in ['exit', 'quit']:
         message = raw_input('> ').strip()
         if message not in ['exit', 'quit']:
-            bot.send(bot.proto.PlayServerboundChatMessage.id,
+            bot._send(bot.proto.PlayServerboundChatMessage.id,
                      chat=message
                      )
 
